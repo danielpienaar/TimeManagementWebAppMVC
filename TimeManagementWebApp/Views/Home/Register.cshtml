@@ -1,0 +1,40 @@
+﻿@model TimeManagementClassLibrary.Student
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<main class="form-signin w-100 m-auto">
+    <form method="post" asp-antiforgery="true" onsubmit="ShowLoading('registerButton')">
+        <img class="mb-4" src="~/img/clock.svg" alt="" width="120" height="120">
+        <h1 class="h3 mb-3 fw-normal">Create an account</h1>
+        <br />
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingStudentNo" placeholder="Student Number" maxlength="10" asp-for="StudentId" required>
+            <label for="floatingStudentNo">Student Number</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingName" maxlength="50" placeholder="Name" asp-for="Name" required>
+            <label for="floatingName">Name</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" asp-for="Password" minlength="4" required>
+            <label for="floatingPassword">Password</label>
+        </div>
+        <br />
+        <p class="text-danger">
+            @ViewBag.StudentError
+        </p>
+        @*<div class="checkbox mb-3">
+        <label>
+        <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        </div>*@
+        <br />
+        <!-- mb-4 for below margin -->
+        <button class="w-100 btn btn-lg button-primary button-grow mb-4" type="submit" id="registerButton" asp-controller="Home" asp-action="InsertStudent">Register</button>
+        <button class="w-100 btn btn-lg button-secondary button-grow" type="submit" formnovalidate asp-controller="Home" asp-action="Index">Back</button>
+        @*<p class="mt-5 mb-3 text-muted">&copy; 2022 - TimeManagementWebApp</p>*@
+        @*<p><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>*@
+    </form>
+</main>

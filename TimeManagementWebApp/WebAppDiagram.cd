@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TimeManagementWebApp.Controllers.HomeController">
+    <Position X="3" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgABAAAAAAQAAAAAAAAAAAAABAAAAAAEQAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Controllers.ModuleController">
+    <Position X="0.75" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAACAAAAAAAAAAAEAAEACAAGAYAAAAAA=</HashCode>
+      <FileName>Controllers\ModuleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Controllers.SemesterController">
+    <Position X="3" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAgAAAAAAAAACAAgAAgAAAAAEAAEACAAEAQAAAAAA=</HashCode>
+      <FileName>Controllers\SemesterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Controllers.StudyHoursController">
+    <Position X="0.75" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\StudyHoursController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Data.TimeManagementDbContext">
+    <Position X="7.5" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAIAAAAAAQAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Data\TimeManagementDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Migrations.initial">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20221215152511_initial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Migrations.TimeManagementDbContextModelSnapshot">
+    <Position X="5.5" Y="8.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\TimeManagementDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Models.ViewModels.ErrorViewModel">
+    <Position X="7.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Models.ViewModels.ModuleViewModel">
+    <Position X="5.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAABgAAQAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ModuleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Models.ViewModels.SemesterViewModel">
+    <Position X="5.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAIAA=</HashCode>
+      <FileName>Models\ViewModels\SemesterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManagementWebApp.Models.ViewModels.SigninViewModel">
+    <Position X="7.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAACAAA=</HashCode>
+      <FileName>Models\ViewModels\SigninViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

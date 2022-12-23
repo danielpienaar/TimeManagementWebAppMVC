@@ -1,0 +1,137 @@
+﻿@model TimeManagementWebApp.Models.ViewModels.ModuleViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="display-6 txt-primary mb-4">Edit Module</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4 text-nowrap">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<input type="hidden" asp-for="ModuleID" />*@
+            <div class="form-group">
+                <label asp-for="Code" class="control-label txt-primary">Module Code</label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label txt-primary">Module Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumCredits" class="control-label txt-primary">Number of Credits</label>
+                <input asp-for="NumCredits" class="form-control" onchange="ShowWarning('numCredits')" />
+                <span asp-validation-for="NumCredits" class="text-danger"></span>
+            </div>
+            <p class="text-danger mb-3 visually-hidden" id="numCredits">Changing the number of credits will regenerate your study hours.</p>
+            <div class="form-group">
+                <label asp-for="ClassHoursPerWeek" class="control-label txt-primary">Class Hours per Week</label>
+                <input asp-for="ClassHoursPerWeek" class="form-control" onchange="ShowWarning('classHours')" />
+                <span asp-validation-for="ClassHoursPerWeek" class="text-danger"></span>
+            </div>
+            <p class="text-danger mb-0 visually-hidden" id="classHours">Changing the class hours will regenerate your study hours.</p>
+            <div class="form-group mt-3">
+                <label asp-for="WeekDays" class="control-label txt-primary">Study Days</label>
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Monday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="monday" name="WeekDays" value="Monday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="monday" name="WeekDays" value="Monday" checked>
+                    }
+                    <label class="form-check-label" for="monday">Monday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Tuesday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="tuesday" name="WeekDays" value="Tuesday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="tuesday" name="WeekDays" value="Tuesday" checked>
+                    }
+                    <label class="form-check-label" for="tuesday">Tuesday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Wednesday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="wednesday" name="WeekDays" value="Wednesday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="wednesday" name="WeekDays" value="Wednesday" checked>
+                    }
+                    <label class="form-check-label" for="wednesday">Wednesday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Thursday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="thursday" name="WeekDays" value="Thursday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="thursday" name="WeekDays" value="Thursday" checked>
+                    }
+                    <label class="form-check-label" for="thursday">Thursday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Friday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="friday" name="WeekDays" value="Friday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="friday" name="WeekDays" value="Friday" checked>
+                    }
+                    <label class="form-check-label" for="friday">Friday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Saturday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="saturday" name="WeekDays" value="Saturday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="saturday" name="WeekDays" value="Saturday" checked>
+                    }
+                    <label class="form-check-label" for="saturday">Saturday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    @if (!Model.WeekDays.Contains("Sunday"))
+                    {
+                        <input class="form-check-input" type="checkbox" id="sunday" name="WeekDays" value="Sunday">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" id="sunday" name="WeekDays" value="Sunday" checked>
+                    }
+                    <label class="form-check-label" for="sunday">Sunday</label>
+                </div>
+                <span asp-validation-for="WeekDays" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn button-primary button-grow mb-4 crud-button" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <input class="btn button-secondary button-grow crud-button" type="button" value="Back" onclick="location.href='@Url.Action("Index", "Module")'" />
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,87 @@
+﻿@model TimeManagementWebApp.Models.ViewModels.ModuleViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-6 txt-primary mb-4">Create Module</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4 text-nowrap">
+        <form asp-action="Create" onsubmit="ShowLoading('moduleCreateButton')">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label txt-primary">Module Code</label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label txt-primary">Module Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumCredits" class="control-label txt-primary">Number of Credits</label>
+                <input asp-for="NumCredits" class="form-control" min="0" />
+                <span asp-validation-for="NumCredits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassHoursPerWeek" class="control-label txt-primary">Class Hours per Week</label>
+                <input asp-for="ClassHoursPerWeek" class="form-control" min="0" />
+                <span asp-validation-for="ClassHoursPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="WeekDays" class="control-label txt-primary">Study Days</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="monday" name="WeekDays" value="Monday">
+                    <label class="form-check-label" for="monday">Monday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="tuesday" name="WeekDays" value="Tuesday">
+                    <label class="form-check-label" for="tuesday">Tuesday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="wednesday" name="WeekDays" value="Wednesday">
+                    <label class="form-check-label" for="wednesday">Wednesday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="thursday" name="WeekDays" value="Thursday">
+                    <label class="form-check-label" for="thursday">Thursday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="friday" name="WeekDays" value="Friday">
+                    <label class="form-check-label" for="friday">Friday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="saturday" name="WeekDays" value="Saturday">
+                    <label class="form-check-label" for="saturday">Saturday</label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="sunday" name="WeekDays" value="Sunday">
+                    <label class="form-check-label" for="sunday">Sunday</label>
+                </div>
+                <span asp-validation-for="WeekDays" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" id="moduleCreateButton" class="btn button-primary button-grow mb-4 crud-button" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <input class="btn button-secondary button-grow crud-button" type="button" value="Back" onclick="location.href='@Url.Action("Index", "Module")'" />
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

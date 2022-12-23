@@ -1,0 +1,175 @@
+:root {
+    /* My colours */
+    --colour-primary: #9EA5FF;
+    --colour-secondary: #FF9E9E;
+    --colour-hover: #C89EFF;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 5px;
+    background: var(--colour-primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-track-piece {
+    background: rgba(0, 0, 0, 0);
+}
+
+/* Scrollbar END */
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* Buttons */
+
+.button-primary {
+    color: white;
+    background-color: var(--colour-primary);
+}
+
+    .button-primary:hover {
+        color: white;
+        background-color: var(--colour-hover);
+        border-color: var(--colour-hover);
+    }
+
+.button-outline-primary {
+    color: var(--colour-primary);
+    background-color: white;
+    border-color: var(--colour-primary);
+}
+
+    .button-outline-primary:hover {
+        color: var(--colour-hover);
+        background-color: white;
+        border-color: var(--colour-hover);
+    }
+
+.button-secondary {
+    color: white;
+    background-color: var(--colour-secondary);
+}
+
+    .button-secondary:hover {
+        color: white;
+        background-color: var(--colour-hover);
+        border-color: var(--colour-hover);
+    }
+
+.button-outline-secondary {
+    color: var(--colour-secondary);
+    background-color: white;
+    border-color: var(--colour-secondary);
+}
+
+    .button-outline-secondary:hover {
+        color: var(--colour-hover);
+        background-color: white;
+        border-color: var(--colour-hover);
+    }
+
+.button-grow {
+    transition: all .1s ease-in-out;
+}
+
+    .button-grow:hover {
+        transform: scale(1.05);
+    }
+
+.crud-button {
+    width: 100px;
+}
+
+.form-check-input:checked {
+    background-color: var(--colour-primary);
+    border-color: var(--colour-primary);
+}
+
+@media (max-width: 1200px) {
+    .option-button {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+/* Buttons END */
+
+/* Text */
+
+.txt-primary {
+    color: var(--colour-primary) !important;
+}
+
+.txt-secondary {
+    color: var(--colour-secondary) !important;
+}
+
+/* Text END */
+
+/* Spacing */
+
+.navbar-collapse {
+    height: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.move-up {
+    padding-bottom: 0px;
+}
+
+.move-down {
+    padding-top: 50px;
+}
+
+.pad-right {
+    padding: 0px 16px 0px 0px;
+}
+
+tr {
+    vertical-align: middle;
+}
+
+.week-text {
+    /*padding-top: .32rem;*/
+    align-self: center;
+}
+
+.crud-form {
+    display: inline-flex;
+}
+
+.crud-form-item {
+    margin-right: 10px;
+    min-width: 100px;
+}
+
+/* Spacing END */

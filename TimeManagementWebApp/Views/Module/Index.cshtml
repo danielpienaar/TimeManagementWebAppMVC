@@ -1,0 +1,110 @@
+﻿@model IEnumerable<TimeManagementClassLibrary.Module>
+
+@{
+    ViewData["Title"] = "Modules";
+}
+
+<h1 class="mb-4 display-6 txt-primary">Semester: @ViewBag.SemesterName</h1>
+<p class="txt-secondary">Modules planned for today:</p>
+<ul class="mb-4">
+    @{
+        int count = 0;
+    }
+    @foreach (var item in Model)
+    {
+        if (item.DaysOfWeek.Contains(DateTime.Now.DayOfWeek.ToString()))
+        {
+            <li class="txt-secondary">@item.Name</li>
+            count++;
+        }
+    }
+    @if (count == 0)
+    {
+        <li class="txt-secondary">None</li>
+    }
+</ul>
+<p class="mb-2">
+    <input class="btn button-primary button-grow" type="button" value="Create Module" onclick="location.href='@Url.Action("Create", "Module")'" />
+</p>
+<p class="mb-4">
+    <input class="btn button-secondary button-grow" type="button" value="Back" onclick="location.href='@Url.Action("Index", "Semester")'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module Code
+            </th>
+            <th>
+                Module Name
+            </th>
+            <th>
+                Number of Credits
+            </th>
+            <th>
+                Class Hours per Week
+            </th>
+            <th>
+                Self-Study Hours per Week
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.DaysOfWeek.Contains(DateTime.Now.DayOfWeek.ToString()))
+            {
+                <tr class="txt-secondary">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumCredits)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassHoursPerWeek)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SelfStudyHoursPerWeek)
+                    </td>
+                    <td>
+                        <!-- using new {} to specify id field -->
+                        <input class="btn button-primary button-grow option-button" type="button" value="Select" onclick="location.href='@Url.Action("Select", "Module", new { id = item.ModuleId })'" /> |
+                        <input class="btn button-primary button-grow option-button" type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Module", new { id = item.ModuleId })'" /> |
+                        <input class="btn button-secondary button-grow option-button" type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Module", new { id = item.ModuleId })'" />
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumCredits)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassHoursPerWeek)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SelfStudyHoursPerWeek)
+                    </td>
+                    <td>
+                        <!-- using new {} to specify id field -->
+                        <input class="btn button-primary button-grow option-button" type="button" value="Select" onclick="location.href='@Url.Action("Select", "Module", new { id = item.ModuleId })'" /> |
+                        <input class="btn button-primary button-grow option-button" type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Module", new { id = item.ModuleId })'" /> |
+                        <input class="btn button-secondary button-grow option-button" type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Module", new { id = item.ModuleId })'" />
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

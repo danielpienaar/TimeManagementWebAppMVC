@@ -1,0 +1,79 @@
+﻿@model IEnumerable<TimeManagementClassLibrary.StudyHours>
+
+@{
+    ViewData["Title"] = "Study Hours";
+}
+
+<h1 class="mb-4 display-6 txt-primary">Module: @ViewBag.ModuleName</h1>
+<p class="mb-2 txt-primary">
+    Current Date: @DateOnly.FromDateTime(DateTime.Now)
+</p>
+<p class="mb-4">
+    <input class="btn button-secondary button-grow" type="button" value="Back" onclick="location.href='@Url.Action("Index", "Module")'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Week)
+            </th>
+            <th>
+                Remaining Study Hours
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                Input Hours Studied
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Date <= DateTime.Now && item.Date.AddDays(7) >= DateTime.Now)
+                    {
+                        <span class="txt-primary">@Html.DisplayFor(modelItem => item.Week)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Week)
+                    }
+                </td>
+                <td>
+                    @if (item.Date <= DateTime.Now && item.Date.AddDays(7) >= DateTime.Now)
+                    {
+                        <span class="txt-primary">@Html.DisplayFor(modelItem => item.RemainingStudyHours)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.RemainingStudyHours)
+                    }
+                </td>
+                <td>
+                    @if (item.Date <= DateTime.Now && item.Date.AddDays(7) >= DateTime.Now)
+                    {
+                        <span class="txt-primary">@Html.DisplayFor(modelItem => item.Date)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Date)
+                    }
+                </td>
+                <td>
+                    <form asp-action="Update" asp-antiforgery="true" class="crud-form" onsubmit="ShowLoading('updateButton')">
+                        <input type="hidden" value="@item.StudyHoursId" name="id">
+                        <input type="number" max="@item.RemainingStudyHours" min="0" class="form-control crud-form-item" name="hoursStudied" placeholder="0" required>
+                        <input class="btn button-primary button-grow" id="updateButton" type="submit" value="Update">
+                        @if (item.Date <= DateTime.Now && item.Date.AddDays(7) >= DateTime.Now)
+                        {
+                            <span class="txt-primary text-nowrap ms-2 week-text">(Current Week)</span>
+                        }
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

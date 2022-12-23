@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TimeManagementClassLibrary.Semester>
+
+@{
+    ViewData["Title"] = "Semesters";
+}
+
+<h1 class="mb-4 display-6 txt-primary">Hi @ViewBag.StudentName</h1>
+<p class="mb-4">
+    <input class="btn button-primary button-grow" type="button" value="Create Semester" onclick="location.href='@Url.Action("Create", "Semester")'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Semester Name
+            </th>
+            <th>
+                Weeks
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SemesterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumWeeks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    <!-- 
+                    using new {} to specify id field
+                    https://stackoverflow.com/questions/2503923/html-button-calling-an-mvc-controller-and-action-method
+                    accessed 15 December 2022
+                    -->
+                    <input class="btn button-primary button-grow option-button" type="button" value="Select" onclick="location.href='@Url.Action("Select", "Semester", new { id = item.SemesterId })'" /> |
+                    <input class="btn button-primary button-grow option-button" type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Semester", new { id = item.SemesterId })'" /> |
+                    <input class="btn button-secondary button-grow option-button" type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Semester", new { id = item.SemesterId })'" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

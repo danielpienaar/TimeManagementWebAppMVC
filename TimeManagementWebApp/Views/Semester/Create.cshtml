@@ -1,0 +1,43 @@
+﻿@model TimeManagementWebApp.Models.ViewModels.SemesterViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-6 txt-primary mb-4">Create Semester</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4 text-nowrap">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SemesterName" class="control-label txt-primary">Semester Name</label>
+                <input asp-for="SemesterName" class="form-control" />
+                <span asp-validation-for="SemesterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumWeeks" class="control-label txt-primary">Weeks</label>
+                <input asp-for="NumWeeks" class="form-control" min="1" />
+                <span asp-validation-for="NumWeeks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label txt-primary">Start Date</label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn button-primary button-grow mb-4 crud-button" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <input class="btn button-secondary button-grow crud-button" type="button" value="Back" onclick="location.href='@Url.Action("Index", "Semester")'" />
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
