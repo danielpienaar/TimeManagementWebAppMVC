@@ -1,4 +1,4 @@
-## Time Management Application WPF
+## Time Management ASP MVC Web Application
 
 <br>
 
